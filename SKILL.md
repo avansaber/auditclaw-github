@@ -5,7 +5,7 @@ version: 1.0.1
 user-invocable: true
 homepage: https://www.auditclaw.ai
 source: https://github.com/avansaber/auditclaw-github
-metadata: {"openclaw":{"type":"executable","requires":{"bins":["python3"],"env":["GITHUB_TOKEN"]}}}
+metadata: {"openclaw":{"type":"executable","install":{"pip":"scripts/requirements.txt"},"requires":{"bins":["python3"],"env":["GITHUB_TOKEN"]}}}
 ---
 # AuditClaw GitHub
 
