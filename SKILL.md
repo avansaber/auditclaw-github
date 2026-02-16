@@ -3,6 +3,7 @@ name: auditclaw-github
 description: GitHub compliance evidence collection for auditclaw-grc. 9 read-only checks covering branch protection, secret scanning, 2FA, Dependabot, deploy keys, audit logs, webhooks, CODEOWNERS, and CI/CD security.
 version: 1.0.1
 user-invocable: true
+homepage: https://github.com/avansaber/auditclaw-github
 metadata: {"openclaw":{"type":"executable","requires":{"bins":["python3"],"env":["GITHUB_TOKEN"]}}}
 ---
 # AuditClaw GitHub
