@@ -1,17 +1,26 @@
 ---
 name: auditclaw-github
-description: GitHub compliance evidence collection for auditclaw-grc
+description: GitHub compliance evidence collection for auditclaw-grc. 9 read-only checks covering branch protection, secret scanning, 2FA, Dependabot, deploy keys, audit logs, webhooks, CODEOWNERS, and CI/CD security.
+version: 1.0.0
 user-invocable: true
-metadata: {"openclaw":{"requires":{"bins":["python3"],"env":["GITHUB_TOKEN"]}}}
+metadata: {"openclaw":{"type":"executable","requires":{"bins":["python3"],"env":["GITHUB_TOKEN"]}}}
 ---
-# GitHub Evidence Collection
+# AuditClaw GitHub
 
-Companion skill for auditclaw-grc. Collects compliance evidence from GitHub organizations.
+Companion skill for auditclaw-grc. Collects compliance evidence from GitHub organizations using read-only API calls.
+
+**9 checks | Read-only token permissions | Evidence stored in shared GRC database**
+
+## Security Model
+- **Read-only access**: Uses fine-grained personal access token with read-only repository and organization permissions. No write access.
+- **Credentials**: Uses `GITHUB_TOKEN` env var. No credentials stored by this skill.
+- **Dependencies**: `PyGithub==2.8.1` (pinned)
+- **Data flow**: Check results stored as evidence in `~/.openclaw/grc/compliance.sqlite` via auditclaw-grc
 
 ## Prerequisites
-- GitHub personal access token with `repo`, `admin:org`, `security_events` scopes
+- GitHub personal access token with read-only permissions (or classic token with `repo`, `read:org`, `security_events`)
 - Set as `GITHUB_TOKEN` environment variable
-- `pip install PyGithub` (auto-installed on first use)
+- `pip install -r scripts/requirements.txt`
 - auditclaw-grc skill installed and initialized
 
 ## Commands
